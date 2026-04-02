@@ -254,6 +254,7 @@ type State = {
   // logAPISuccess to tag the first post-compaction API call so we can
   // distinguish compaction-induced cache misses from TTL expiry.
   pendingPostCompaction: boolean
+  replBridgeActive: boolean
 }
 
 // ALSO HERE - THINK THRICE BEFORE MODIFYING
@@ -420,6 +421,7 @@ function getInitialState(): State {
     lastMainRequestId: undefined,
     lastApiCompletionTimestamp: null,
     pendingPostCompaction: false,
+    replBridgeActive: false,
   }
 
   return state
@@ -427,6 +429,14 @@ function getInitialState(): State {
 
 // AND ESPECIALLY HERE
 const STATE: State = getInitialState()
+
+export function isReplBridgeActive(): boolean {
+  return STATE.replBridgeActive
+}
+
+export function setReplBridgeActive(active: boolean): void {
+  STATE.replBridgeActive = active
+}
 
 export function getSessionId(): SessionId {
   return STATE.sessionId

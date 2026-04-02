@@ -7,6 +7,12 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
+      "bun:bundle": [
+        "./stubs/bun-bundle.ts"
+      ],
+      "bundle": [
+        "./stubs/bun-bundle.ts"
+      ],
       "@ant/claude-for-chrome-mcp": [
         "./stubs/ant-claude-for-chrome-mcp.ts"
       ],
