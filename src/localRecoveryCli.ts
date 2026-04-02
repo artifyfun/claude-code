@@ -2,6 +2,8 @@ import Anthropic from '@anthropic-ai/sdk'
 import { readFileSync } from 'fs'
 import { createInterface } from 'readline'
 
+import pkg from '../package.json' assert { type: 'json' }
+
 type OutputFormat = 'text' | 'json'
 
 function printHelp(): void {
@@ -33,7 +35,7 @@ function printHelp(): void {
 }
 
 function printVersion(): void {
-  process.stdout.write('999.0.0-local (Claude Code local recovery)\n')
+  process.stdout.write(`${pkg.version}\n`)
 }
 
 function parseArgs(argv: string[]) {
